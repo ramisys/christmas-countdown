@@ -1,6 +1,5 @@
 var audio = new Audio('sound.mp3');
 audio.loop = true;
-audio.autoplay = true;
 
 function countdownToChristmas() {
     const targetTime = new Date();
