@@ -1,3 +1,6 @@
+var audio = new Audio('sound.mp3');
+audio.loop = true;
+
 function countdownToChristmas() {
     const targetTime = new Date();
     targetTime.setHours(24, 0, 0, 0); // Set the countdown time (e.g., 17:58:00)
@@ -10,6 +13,7 @@ function countdownToChristmas() {
         const difference = targetTime - now;
 
         if (difference <= 0) {
+            stopMusic();
             clearInterval(timer);
             countdownContainer.remove();
             playVideo();
@@ -38,4 +42,13 @@ function playVideo() {
     const container = document.getElementById('video-container');
     container.appendChild(video);
     video.play();
+}
+
+function playMusic() {
+    audio.play();
+}
+
+function stopMusic() {
+    audio.pause();
+    audio.currentTime = 0;
 }
