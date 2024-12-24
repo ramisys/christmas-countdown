@@ -42,10 +42,17 @@ function playVideo() {
     const container = document.getElementById('video-container');
     container.appendChild(video);
     video.play();
+
+    stopMusic();
 }
 
 function playMusic() {
-    audio.play();
+    // Wait for a user interaction (click anywhere on the page)
+    document.body.addEventListener('click', function() {
+        audio.play().catch(function(error) {
+            console.log('Autoplay failed: ', error);
+        });
+    });
 }
 
 function stopMusic() {
