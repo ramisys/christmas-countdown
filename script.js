@@ -13,7 +13,6 @@ function countdownToChristmas() {
         const difference = targetTime - now;
 
         if (difference <= 0) {
-            stopMusic();
             clearInterval(timer);
             countdownContainer.remove();
             playVideo();
